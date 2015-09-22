@@ -1,0 +1,10 @@
+# Editors
+.idea
+*.yml
+
+# Node specific
+node_modules
+npm-debug.log
+
+# Bower components
+bower_components

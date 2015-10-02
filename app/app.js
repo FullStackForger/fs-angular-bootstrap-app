@@ -1,1 +1,1 @@
-angular.module('IFSP.App', ['ngResource', 'ngRoute'])
+angular.module('IFSP.App', [])

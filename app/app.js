@@ -3,7 +3,10 @@ angular
         'ngRoute'
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider      
+        $routeProvider
+        .when('/', {
+            templateUrl: 'pages/home/home.tpl.html',
+        })        
         .otherwise({
             redirectTo: '/'
         });

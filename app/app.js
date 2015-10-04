@@ -6,16 +6,16 @@ angular
         $routeProvider
         .when('/', {
             templateUrl: 'pages/home/home.tpl.html',
-        })        
+        })
         .when('/info', {
             templateUrl: 'pages/info/info.tpl.html',
-        })        
+        })
         .when('/profile', {
             templateUrl: 'pages/profile/profile.tpl.html',
-        })        
+        })
         .when('/settings', {
             templateUrl: 'pages/settings/settings.tpl.html',
-        })        
+        })
         .otherwise({
             redirectTo: '/'
         });

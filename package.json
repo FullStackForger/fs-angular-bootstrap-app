@@ -17,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/indieforger/ifsp-app/issues"
   },
-  "homepage": "http://indieforger.com/app"
+  "homepage": "http://indieforger.com/app",
+	"private": true
 }

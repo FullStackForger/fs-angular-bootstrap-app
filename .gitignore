@@ -24,8 +24,9 @@ npm-debug.log
 app/vendor
 
 # IntelliJ IDEA files
-.idea/
+.idea
 *.iml
+.vscode
 
 # osx specific files
 *~

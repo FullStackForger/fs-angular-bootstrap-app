@@ -1,8 +1,8 @@
 (function() {
 'use strict';
 
-	angular
-		.module('IFSP.App.Pages.Login'')
+	angulars
+		.module('IFSP.App.Pages.Login')
 		.controller('LoginController', LoginController);
 
 	LoginController.$inject = [''];

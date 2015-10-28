@@ -1,1 +1,5 @@
-angular.module('IFSP.App.Pages.Home', [])
+(function() {
+	angular.module('IFSP.App.Pages.Login', [
+
+	])
+})()

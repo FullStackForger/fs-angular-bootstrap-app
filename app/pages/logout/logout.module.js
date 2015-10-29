@@ -1,1 +1,6 @@
-angular.module('IFSP.App.Pages.Home', [])
+(function() {
+	'use strict';
+	angular.module('IFSP.App.Pages.Logout', [
+
+	])
+})()

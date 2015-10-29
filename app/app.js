@@ -16,6 +16,11 @@ angular
         .when('/settings', {
             templateUrl: 'pages/settings/settings.tpl.html',
         })
+				.when('/login', {
+						controller: 'LoginController',
+						controllerAs: 'loginCtrl',
+            templateUrl: 'pages/login/login.tpl.html',
+        })
         .otherwise({
             redirectTo: '/'
         });

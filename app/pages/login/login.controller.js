@@ -1,7 +1,7 @@
 (function() {
 'use strict';
 
-	angulars
+	angular
 		.module('IFSP.App.Pages.Login')
 		.controller('LoginController', LoginController);
 
@@ -9,6 +9,7 @@
 	function LoginController() {
 		var vm = this;
 
+		vm.user = {}
 		vm.login = function() {
 				// login user
 				console.log('logging in');

@@ -1,6 +1,7 @@
 angular
     .module('IFSP.App', [
-        'ngRoute'
+        'ngRoute',
+				'IFSP.App.Pages'
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider

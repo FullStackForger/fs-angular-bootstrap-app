@@ -5,8 +5,10 @@
 		.module('IFSP.App.Pages.Login')
 		.controller('LoginController', LoginController);
 
-	LoginController.$inject = [''];
+
 	function LoginController() {
+		this.$inject = [''];
+
 		var vm = this;
 
 		vm.user = {}

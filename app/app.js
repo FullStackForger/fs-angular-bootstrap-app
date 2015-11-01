@@ -4,17 +4,7 @@ angular
 				'IFSP.App.Pages'
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider
-        .when('/info', {
-            templateUrl: 'pages/info/info.tpl.html',
-        })
-        .when('/profile', {
-            templateUrl: 'pages/profile/profile.tpl.html',
-        })
-        .when('/settings', {
-            templateUrl: 'pages/settings/settings.tpl.html',
-        })
-        .otherwise({
+        $routeProvider.otherwise({
             redirectTo: '/home'
         });
     }])

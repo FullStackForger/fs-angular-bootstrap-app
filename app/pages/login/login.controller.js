@@ -3,18 +3,23 @@
 
 	angular
 		.module('IFSP.App.Pages.Login')
-		.controller('LoginController', LoginController);
+		.controller('LoginController', LoginController)
 
-
-	function LoginController() {
+	LoginController.$inject = ['loginService']
+	function LoginController(loginService) {
 		this.$inject = [''];
 
 		var vm = this;
 
 		vm.user = {}
 		vm.login = function() {
-				// login user
-				console.log('logging in');
+			loginService
+				.login(vm.user)
+				.then(function (data) {
+					console.log(data)
+				}, function (error) {
+					console.log(error)
+				})
 		}
 
 	}

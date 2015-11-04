@@ -1,5 +1,5 @@
 (function() {
-	'use strict';
+	'use strict'
 	var module = angular.module('IFSP.App.Pages.Login', [
 			'ngRoute'
 		])
@@ -11,5 +11,5 @@
 						controllerAs: 'loginCtrl',
             templateUrl: 'pages/login/login.tpl.html',
         })
-	}]);
+	}])
 })()

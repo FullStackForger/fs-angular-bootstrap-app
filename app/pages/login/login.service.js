@@ -2,20 +2,19 @@
 	'use strict'
 	angular
 		.module('IFSP.App.Pages.Login')
-		.service('LoginService', LoginService)
+		.service('loginService', LoginService)
 
 	LoginService.$inject = ['$http', '$q']
-	function LoginService($http) {
+	function LoginService($http, $q) {
 		this.login = login
 
 		function login(user) {
 			var deferred = $q.defer()
 
-			$http.post('/auth/login', user).then(function (response) {
-				deferred.resolve(data.data)
+			$http.post('/api/auth/login', user).then(function (response) {
+				deferred.resolve(response.data)
 			}, function (error) {
-				console.log(error)
-				deferred.reject('Invalid credentials.')
+				deferred.reject(error.data.message)
 			})
 
   		return deferred.promise

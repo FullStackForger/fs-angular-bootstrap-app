@@ -6,9 +6,7 @@
 
 	LoginService.$inject = ['$http', '$q']
 	function LoginService($http, $q) {
-		this.login = login
-
-		function login(user) {
+		this.login = function login(user) {
 			var deferred = $q.defer()
 
 			$http.post('/api/auth/login', user).then(function (response) {

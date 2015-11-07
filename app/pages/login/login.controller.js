@@ -5,8 +5,8 @@
 		.module('IFSP.App.Pages.Login')
 		.controller('LoginController', LoginController)
 
-	LoginController.$inject = ['loginService']
-	function LoginController(loginService) {
+	LoginController.$inject = ['loginService', 'toastr']
+	function LoginController(loginService, toastr) {
 		this.$inject = [''];
 
 		var vm = this;
@@ -16,9 +16,9 @@
 			loginService
 				.login(vm.user)
 				.then(function (data) {
-					console.log(data)
+					toastr.success('Welcome back ' + data.username + '!')
 				}, function (error) {
-					console.log(error)
+					toastr.error(error)
 				})
 		}
 

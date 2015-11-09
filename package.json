@@ -4,7 +4,9 @@
   "description": "IndieForger App",
   "main": "server.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "karma": "^0.13.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +20,5 @@
     "url": "https://github.com/indieforger/ifsp-app/issues"
   },
   "homepage": "http://indieforger.com/app",
-	"private": true
+  "private": true
 }

@@ -14,12 +14,20 @@ module.exports = function(config) {
 			'app/vendor/angular/angular.js',
 			'app/vendor/angular-route/angular-route.js',
 			'app/vendor/angular-mocks/angular-mocks.js',
+					//'app/vendor/angular-sanitize/angular-sanitize.js',
+					//'app/vendor/angular-bootstrap/ui-bootstrap.js',
+					//'app/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
 			// app modules
 			'app/app.js',
 			'app/pages/**/*.module.js', // load module definitions first
 			'app/pages/**/*.js',
 			// templates
 			//'app/modules/**/*.tpl.html'
+		],
+
+    // list of files to exclude
+		exclude: [
+			'app/**/*.annotated.js',
 		],
 
 

@@ -7,8 +7,7 @@
 	module.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
 				.when('/login', {
-						controller: 'LoginController',
-						controllerAs: 'loginCtrl',
+						controller: 'LoginController as loginCtrl',
             templateUrl: 'pages/login/login.tpl.html',
         })
 	}])

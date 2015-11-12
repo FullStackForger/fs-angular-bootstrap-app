@@ -1,5 +1,5 @@
 "use strict";
-describe("logoin api service", function () {
+describe("IFSP.App.Pages.Login.loginService", function () {
 	var $httpBackend, $rootScope, authRequestHandler, authService
 
   beforeEach(module("IFSP.App.Pages.Login"))

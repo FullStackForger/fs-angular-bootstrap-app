@@ -10,4 +10,14 @@ describe("logoin api service", function () {
 		 authService =  $injector.get('loginService')
   }))
 
+	it('should resolve with token', function () {
+		authRequestHandler.respond(200, { token: 123 })
+		authService.login({
+			email: 'random@gmail.com',
+			password: 'rAnDoMpaSS'
+		}).then(function (data) {
+			expect(data.token).to.equal(123)
+		})
+	})
+
 })

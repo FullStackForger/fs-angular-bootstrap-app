@@ -20,4 +20,14 @@ describe("logoin api service", function () {
 		})
 	})
 
+	it('should resolve with error', function () {
+		authRequestHandler.respond(401, { token: 123 })
+		authService.login({
+			email: 'random@gmail.com',
+			password: 'rAnDoMpaSS'
+		}).then(function (data) {
+			expect(data.token).to.equal(123)
+		})
+	})
+
 })

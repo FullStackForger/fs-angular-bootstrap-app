@@ -12,10 +12,13 @@
 		var vm = this;
 
 		vm.user = {}
+		vm.token = undefined
+
 		vm.login = function() {
 			loginService
 				.login(vm.user)
 				.then(function (data) {
+					vm.token = data.token
 					toastr.success('Welcome back ' + data.username + '!')
 				}, function (error) {
 					toastr.error(error)

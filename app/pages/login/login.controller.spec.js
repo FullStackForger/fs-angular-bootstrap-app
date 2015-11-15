@@ -9,12 +9,19 @@ describe('app.modules.bill.internal BillController', function () {
 			return mock.loginDeferred.promise
 		}
 	}
+
 	mock.toastr = {
 		success: function () { },
-		error: function () { }
+		error:function () { },
 	}
+
 	mock.resolveloginDeferred = function (cb) {
 		mock.loginDeferred.resolve({ token: 'xxxxxxxxxxx.yyyyyyyy.zzzzzzzzzzzzz' })
+		$rootScope.$digest()
+	}
+
+	mock.rejectLoginDeferred = function (cb) {
+		mock.loginDeferred.reject({ error: 'Some Error Message' })
 		$rootScope.$digest()
 	}
 
@@ -33,9 +40,7 @@ describe('app.modules.bill.internal BillController', function () {
 			loginService: _loginService_,
 			toastr: _toastr_
 		})
-		//loginCtrl = _LoginController_
 	}))
-
 
 	it('should retrieve a token', function () {
 		expect(loginCtrl.token).toBeUndefined()
@@ -46,11 +51,17 @@ describe('app.modules.bill.internal BillController', function () {
 	})
 
 	it('should notify with success popup', function () {
-
+		loginCtrl.login({ email: 'test@gmail.com', password: '123qwe'})
+		spyOn(mock.toastr, 'success')
+		mock.resolveloginDeferred()
+		expect(mock.toastr.success).toHaveBeenCalled()
 	})
 
 	it('should notify with error popup', function () {
-
+		loginCtrl.login({ email: 'test@gmail.com', password: '123qwe'})
+		spyOn(mock.toastr, 'error')
+		mock.rejectLoginDeferred()
+		expect(mock.toastr.error).toHaveBeenCalled()
 	})
 
 })

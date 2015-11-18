@@ -9,7 +9,8 @@
 			'toastr',
 			'satellizer',
 			// local depdenencies
-			'IFSP.App.Pages'
+			'IFSP.App.Pages',
+			'IFSP.App.Common'
 	])
 
 	app.config(['$routeProvider', '$locationProvider', '$authProvider',

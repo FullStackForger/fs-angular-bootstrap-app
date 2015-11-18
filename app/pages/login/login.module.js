@@ -1,14 +1,14 @@
-(function() {
+(function () {
 	'use strict'
 	var module = angular.module('IFSP.App.Pages.Login', [
-			'ngRoute'
-		])
+		'ngRoute'
+	])
 
-	module.config(['$routeProvider', function($routeProvider) {
+	module.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
-				.when('/login', {
-						controller: 'LoginController as loginCtrl',
-            templateUrl: 'pages/login/login.tpl.html',
-        })
+			.when('/login', {
+				controller: 'LoginController as loginCtrl',
+				templateUrl: 'pages/login/login.tpl.html'
+			})
 	}])
 })()

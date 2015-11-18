@@ -1,5 +1,8 @@
 (function() {
 	'use strict'
+
+	// note: should be made redundant, authentication moved to satellizer
+
 	angular
 		.module('IFSP.App.Pages.Login')
 		.service('loginService', LoginService)

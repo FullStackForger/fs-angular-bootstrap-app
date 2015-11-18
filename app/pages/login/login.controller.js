@@ -5,25 +5,41 @@
 		.module('IFSP.App.Pages.Login')
 		.controller('LoginController', LoginController)
 
-	LoginController.$inject = ['loginService', 'toastr']
-	function LoginController(loginService, toastr) {
+	LoginController.$inject = ['$location', '$auth', 'toastr']
+	function LoginController($location, $auth, toastr) {
 		this.$inject = [''];
 
 		var vm = this;
-
 		vm.user = {}
-		vm.token = undefined
-
 		vm.login = function() {
-			loginService
-				.login(vm.user)
-				.then(function (data) {
-					vm.token = data.token
-					toastr.success('Welcome back ' + data.username + '!')
-				}, function (error) {
-					toastr.error(error)
-				})
-		}
+      $auth.login(vm.user)
+        .then(function(data) {
+          toastr.success('Welcome back ' + data.username + '!');
+          $location.path('/');
+        })
+        .catch(function(error) {
+          toastr.error(error.data.message, error.status);
+        });
+    };
+
+    vm.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function() {
+          toastr.success('You have successfully signed in with ' + provider + '!');
+          $location.path('/');
+        })
+        .catch(function(error) {
+          if (error.message) {
+            // Satellizer promise reject error.
+            toastr.error(error.message);
+          } else if (error.data) {
+            // HTTP response error from server
+            toastr.error(error.data.message, error.status);
+          } else {
+            toastr.error(error);
+          }
+        });
+    };
 
 	}
 })();

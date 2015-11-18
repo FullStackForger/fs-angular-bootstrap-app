@@ -4,7 +4,7 @@ describe('app.modules.bill.internal BillController', function () {
 
 	mock = {}
 	mock.loginDeferred = null
-	mock.loginService = {
+	mock.$auth = {
 		login : function () {
 			return mock.loginDeferred.promise
 		}
@@ -21,23 +21,23 @@ describe('app.modules.bill.internal BillController', function () {
 	}
 
 	mock.rejectLoginDeferred = function (cb) {
-		mock.loginDeferred.reject({ error: 'Some Error Message' })
+		mock.loginDeferred.reject({ status: 501, data: { message: 'Some Error Message' }})
 		$rootScope.$digest()
 	}
 
 	beforeEach(module('IFSP.App.Pages.Login'));
 	beforeEach(module(function($provide) {
-		$provide.value('loginService', mock.loginService)
+		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)
 	}))
 
-	beforeEach(inject(function(_$controller_, _$q_, _$rootScope_, _loginService_, _toastr_) {
+	beforeEach(inject(function(_$controller_, _$q_, _$rootScope_, _$auth_, _toastr_) {
 		$controller = _$controller_
 		$q = _$q_
 		$rootScope = _$rootScope_
 		mock.loginDeferred = $q.defer()
 		loginCtrl  = $controller('LoginController', {
-			loginService: _loginService_,
+			$auth: _$auth_,
 			toastr: _toastr_
 		})
 	}))

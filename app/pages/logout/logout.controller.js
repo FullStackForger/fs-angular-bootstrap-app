@@ -21,10 +21,10 @@
 
 		function initRedirect(delay) {
 			vm.timer = delay
-			$interval(function() {
+			var interval = $interval(function() {
 					vm.timer -= 1
 					if (vm.timer <= 0) {
-						$interval.cancel()
+						$interval.cancel(interval)
 						$location.path('/')
 					}
 				}, 1000)

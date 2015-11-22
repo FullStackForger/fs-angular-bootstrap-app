@@ -42,14 +42,6 @@ describe('app.modules.bill.internal BillController', function () {
 		})
 	}))
 
-	it('should retrieve a token', function () {
-		expect(loginCtrl.token).toBeUndefined()
-		loginCtrl.login({ email: 'test@gmail.com', password: '123qwe'})
-		expect(loginCtrl.token).toBeUndefined()
-		mock.resolveloginDeferred()
-		expect(loginCtrl.token).not.toBeUndefined()
-	})
-
 	it('should notify with success popup', function () {
 		loginCtrl.login({ email: 'test@gmail.com', password: '123qwe'})
 		spyOn(mock.toastr, 'success')

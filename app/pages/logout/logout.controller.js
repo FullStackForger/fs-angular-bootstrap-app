@@ -9,9 +9,6 @@
 		var vm = this
 		vm.timer = null
 
-		// auto - log out
-		console.log('logging out')
-
 		$auth
 			.logout()
 			.then(function() {

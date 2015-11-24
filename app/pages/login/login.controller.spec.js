@@ -2,6 +2,9 @@
 describe('app.modules.bill.internal BillController', function () {
 	var $controller, $q, $rootScope, loginCtrl, mock
 
+	// -----------------------------
+	// mocks
+	// -----------------------------
 	mock = {}
 	mock.loginDeferred = null
 	mock.$auth = {
@@ -25,7 +28,10 @@ describe('app.modules.bill.internal BillController', function () {
 		$rootScope.$digest()
 	}
 
-	beforeEach(module('IFSP.App.Pages.Login'));
+	// -----------------------------
+	// test setup
+	// -----------------------------
+	beforeEach(module('IFSP.App.Pages.Login'))
 	beforeEach(module(function ($provide) {
 		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)
@@ -42,6 +48,9 @@ describe('app.modules.bill.internal BillController', function () {
 		})
 	}))
 
+	// -----------------------------
+	// test specs
+	// -----------------------------
 	it('should notify with success popup', function () {
 		loginCtrl.login({ email: 'test@gmail.com', password: '123qwe' })
 		spyOn(mock.toastr, 'success')

@@ -45,4 +45,11 @@ fdescribe('app.modules.bill.internal BillController', function () {
 		expect(mock.toastr.info).toHaveBeenCalled()
 	})
 
+	it('should redirect to main page', inject(function($location, $rootScope) {
+		$location.path('/controller-test')
+		mock.createController()
+		setTimeout(function() {
+			expect($location.path()).toEqual('/')
+		}, 3.5);
+	}));
 })

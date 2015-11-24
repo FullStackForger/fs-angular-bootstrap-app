@@ -1,5 +1,5 @@
 'use strict'
-fdescribe('app.modules.bill.internal BillController', function () {
+describe('app.modules.bill.internal BillController', function () {
 	var $controller, $q, $rootScope, logoutCtrl, mock
 
  // -----------------------------

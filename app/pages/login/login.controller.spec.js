@@ -1,5 +1,5 @@
-'use strict'
 describe('app.modules.bill.internal BillController', function () {
+	'use strict'
 	var $controller, $q, $rootScope, loginCtrl, mock
 
 	// -----------------------------

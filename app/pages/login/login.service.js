@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict'
 
 	// note: should be made redundant, authentication moved to satellizer
@@ -18,7 +18,7 @@
 				deferred.reject(error.data.message)
 			})
 
-  		return deferred.promise
+			return deferred.promise
 		}
 	}
 })();

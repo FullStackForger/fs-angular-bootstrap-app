@@ -13,7 +13,7 @@
 			.logout()
 			.then(function() {
 				toastr.info('You have been logged out')
-				initRedirect(5)
+				initRedirect(3)
 			});
 
 		function initRedirect(delay) {

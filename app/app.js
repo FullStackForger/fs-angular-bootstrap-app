@@ -1,13 +1,11 @@
 (function() {
 	'use strict'
-
 	var app = 	angular.module('IFSP.App', [
 			// global dependecies
 			'ngRoute',
 			'ngAnimate',
-			// 3d party depedencies
-			'toastr',
 			'satellizer',
+			'toastr',
 			// local depdenencies
 			'IFSP.App.Pages',
 			'IFSP.App.Common'

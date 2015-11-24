@@ -1,8 +1,7 @@
 (function () {
 	'use strict';
 	var module = angular.module('IFSP.App.Pages.Logout', [
-		'ngRoute',
-		'toastr'
+		'ngRoute'
 	])
 
 	module.config(['$routeProvider', function ($routeProvider) {

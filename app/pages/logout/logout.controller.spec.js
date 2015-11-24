@@ -2,6 +2,9 @@
 fdescribe('app.modules.bill.internal BillController', function () {
 	var $controller, $q, $rootScope, logoutCtrl, mock
 
+ // -----------------------------
+ // mock object
+ // -----------------------------
 	mock = {}
 	mock.logoutDeferred = null
 	mock.$auth = {
@@ -17,7 +20,10 @@ fdescribe('app.modules.bill.internal BillController', function () {
 		$rootScope.$digest()
 	}
 
-	beforeEach(module('IFSP.App.Pages.Logout'));
+	// -----------------------------
+	// test setup
+	// -----------------------------
+	beforeEach(module('IFSP.App.Pages.Logout'))
 	beforeEach(module(function($provide) {
 		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)
@@ -38,6 +44,9 @@ fdescribe('app.modules.bill.internal BillController', function () {
 		}
 	}))
 
+	// -----------------------------
+	// test specs
+	// -----------------------------
 	it('should notify with info popup', function () {
 		spyOn(mock.toastr, 'info')
 		mock.createController()
@@ -50,6 +59,6 @@ fdescribe('app.modules.bill.internal BillController', function () {
 		mock.createController()
 		setTimeout(function() {
 			expect($location.path()).toEqual('/')
-		}, 3.5);
-	}));
+		}, 3.5)
+	}))
 })

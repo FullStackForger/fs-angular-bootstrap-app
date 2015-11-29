@@ -65,4 +65,13 @@ fdescribe('IFSP.App.Pages.Signup Controller', function() {
 		mock.resolveSignupDeferred()
 		expect(mock.toastr.info).toHaveBeenCalled()
 	})
+
+	it('should notify with error popup', function () {
+		spyOn(mock.toastr, 'error')
+		ctrl.signup({ /* user data */ });
+		mock.rejectSignupDeferred();
+		expect(mock.toastr.error).toHaveBeenCalled()
+	});
+
+
 })

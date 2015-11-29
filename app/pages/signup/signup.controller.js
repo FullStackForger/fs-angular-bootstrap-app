@@ -5,10 +5,24 @@
 		.module('IFSP.App.Pages.Signup')
 		.controller('SignupController', SignupController)
 
-	SignupController.$inject = []
-	function SignupController() {
+	SignupController.$inject = ['$location', '$auth', 'toastr']
+	function SignupController($location, $auth, toastr) {
 		var vm = this
-		vm.user = {}
 
+		this.user = {}
+		this.signup = signup
+
+		function signup() {
+      $auth
+				.signup(vm.user)
+        .then(function(response) {
+          $auth.setToken(response)
+          $location.path('/')
+          toastr.info('You have successfully created a new account and have been logged in.');
+        })
+        .catch(function(response) {
+          toastr.error(response.data.message)
+        })
+    }
 	}
-})();
+})()

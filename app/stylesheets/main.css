@@ -2,3 +2,10 @@ html, body {
     margin: 0px;
     padding: 0px;
 }
+
+.form-group.has-feedback .form-control {
+	padding-left: 40px;
+}
+.form-group .form-control-feedback {
+	left: 0px;
+}

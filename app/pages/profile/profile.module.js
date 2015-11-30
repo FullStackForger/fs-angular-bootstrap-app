@@ -11,14 +11,14 @@
 			})
 
 			function loginRequired ($q, $location, $auth) {
-				var deferred = $q.defer();
+				var deferred = $q.defer()
 				if ($auth.isAuthenticated()) {
-					deferred.resolve();
+					deferred.resolve()
 				} else {
-					$location.path('/login');
-					deferred.reject();
+					$location.path('/login')
+					deferred.reject()
 				}
-				return deferred.promise;
+				return deferred.promise
 			};
 		}])
 })()

@@ -19,6 +19,6 @@
 					deferred.reject()
 				}
 				return deferred.promise
-			};
+			}
 		}])
 })()

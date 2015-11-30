@@ -1,24 +1,13 @@
 (function () {
 	angular
-		.module('IFSP.App.Pages.Profile', ['ngRoute'])
-		.config(['$routeProvider', function ($routeProvider) {
+		.module('IFSP.App.Pages.Profile', ['ngRoute', 'IFSP.App.Common'])
+		.config(['$routeProvider', 'resolver', function ($routeProvider, resolver) {
 
 			$routeProvider.when('/profile', {
 				templateUrl: 'pages/profile/profile.tpl.html',
 				resolve: {
-					loginRequired: loginRequired
+					isAllowed: resolver.allowRegisteredOnly
 				}
 			})
-
-			function loginRequired ($q, $location, $auth) {
-				var deferred = $q.defer()
-				if ($auth.isAuthenticated()) {
-					deferred.resolve()
-				} else {
-					$location.path('/login')
-					deferred.reject()
-				}
-				return deferred.promise
-			}
 		}])
 })()

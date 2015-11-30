@@ -1,4 +1,4 @@
-describe('app.modules.bill.internal BillController', function () {
+describe('IFSP.App.Pages.Login LoginController', function () {
 	'use strict'
 	var $controller, $q, $rootScope, loginCtrl, mock
 

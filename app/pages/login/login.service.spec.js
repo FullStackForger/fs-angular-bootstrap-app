@@ -1,4 +1,4 @@
-describe("IFSP.App.Pages.Login.loginService", function () {
+describe("IFSP.App.Pages.Login loginService", function () {
 	'use strict'
 	var $httpBackend, $rootScope, authRequestHandler, authService
 

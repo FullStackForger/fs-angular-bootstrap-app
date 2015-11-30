@@ -1,4 +1,4 @@
-fdescribe('IFSP.App.Pages.Signup Controller', function() {
+fdescribe('IFSP.App.Pages.Signup SignupController', function() {
 	'use strict'
 	var $controller, $q, $rootScope, logoutCtrl, $location, mock, ctrl
  // -----------------------------

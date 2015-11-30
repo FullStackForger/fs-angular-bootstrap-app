@@ -1,24 +1,18 @@
 (function () {
-	angular
-		.module('IFSP.App.Pages.Settings', ['ngRoute'])
-		.config(['$routeProvider', function($routeProvider) {
+	var module = angular.module('IFSP.App.Pages.Settings', [
+		'ngRoute',
+		'IFSP.App.Common'
+	])
 
-			$routeProvider.when('/settings', {
-				templateUrl: 'pages/settings/settings.tpl.html',
-				resolve: {
-					restrictToRegistered: restrictToRegistered
-				}
-			})
+	module.config(['$routeProvider', 'resolver',
+		function($routeProvider, resolver) {
 
-			function restrictToRegistered ($q, $location, $auth) {
-				var deferred = $q.defer()
-				if ($auth.isAuthenticated()) {
-					deferred.resolve()
-				} else {
-					$location.path('/login')
-					deferred.reject()
-				}
-				return deferred.promise
+		$routeProvider.when('/settings', {
+			templateUrl: 'pages/settings/settings.tpl.html',
+			resolve: {
+				canAccess: resolver.allowRegisteredOnly
 			}
-		}])
+		})
+	}])
+
 })()

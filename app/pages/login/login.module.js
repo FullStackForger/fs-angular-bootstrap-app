@@ -1,14 +1,17 @@
 (function () {
 	'use strict'
-	var module = angular.module('IFSP.App.Pages.Login', [
-		'ngRoute'
-	])
+	angular
+		.module('IFSP.App.Pages.Login', ['ngRoute', 'IFSP.App.Common'])
+		.config(['$routeProvider', 'resolver', function ($routeProvider, resolver) {
 
-	module.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/login', {
+			$routeProvider.when('/login', {
 				controller: 'LoginController as loginCtrl',
-				templateUrl: 'pages/login/login.tpl.html'
+				templateUrl: 'pages/login/login.tpl.html',
+				resolve: {
+					isAllowed: resolver.allowGuestOnly
+				}
 			})
-	}])
+
+		}])
 })()
+

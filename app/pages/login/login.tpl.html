@@ -1,6 +1,6 @@
-<div class="container">
+<div class="panel container">
   <div class="row">
-    <div class="col-md-6 center-form panel">
+    <div class="col-md-6 center-form">
       <div class="panel-body">
         <h2 class="text-center">Log in</h2>
         <form method="post" ng-submit="loginCtrl.login()" name="loginForm">
@@ -20,12 +20,12 @@
         </form>
       </div>
 		</div>
-    <div class="col-md-6 center-form panel">
+    <div class="col-md-6 center-form">
 			<div class="panel-body">
 				<div class="signin-or-separator">
-            <h6 class="text-center">or sign in</h6>
-            <hr>
+            <h6 class="text-center">or sign in with social account</h6>
 				</div>
+				<hr/>
 				<div>
 					<button class="btn btn-block btn-facebook" ng-click="authenticate('facebook')">
 						<i class="ion-social-facebook"></i> Sign in with Facebook
@@ -68,8 +68,8 @@
 				</div>
 				<hr />
 				<p class="text-center text-muted">
-					We promise to not publish to your social networks without your permission.<br />
-					Upcate your preferences from <b>settings</b> tab once you are logged in.
+					We never publish to your social networks without your permission.<br />
+					You can change your preferences from <b>settings</b> tab once you're logged in.
 				</p>
 			</div>
     </div>

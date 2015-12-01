@@ -4,28 +4,31 @@
 	angular
 		.module('IFSP.App.Common')
 		.constant('resolver', {
-			allowRegisteredOnly: allowRegisteredOnly
+			allowRegisteredOnly: allowRegisteredOnly,
+			allowGuestOnly: allowGuestOnly
 		})
 
 	function allowRegisteredOnly($q, $location, $auth) {
-			var deferred = $q.defer()
-			if ($auth.isAuthenticated()) {
-		deferred.resolve()
-			} else {
-		$location.path('/login')
-		deferred.reject()
-			}
-			return deferred.promise
+		var deferred = $q.defer()
+		if ($auth.isAuthenticated()) {
+			deferred.resolve()
+		} else {
+			deferred.reject()
+			$location.path('/login')
+		}
+		return deferred.promise
 	}
 
-	function allowGuestOnly($q, $auth) {
-		var deferred = $q.defer();
+	function allowGuestOnly($q, $location, $auth) {
+		var deferred = $q.defer()
+		console.log($location.path());
 		if ($auth.isAuthenticated()) {
-			deferred.reject();
+			deferred.reject()
+			$location.path('/')
 		} else {
-			deferred.resolve();
+			deferred.resolve()
 		}
-		return deferred.promise;
+		return deferred.promise
 	}
 
 })()

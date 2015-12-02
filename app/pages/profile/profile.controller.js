@@ -10,6 +10,8 @@
 		var vm = this;
 		vm.user = {}
 		vm.getProfile = getProfile
+		vm.updateProfile = updateProfile
+
 		vm.getProfile()
 
 		function getProfile() {
@@ -21,7 +23,7 @@
 		}
 
 		function updateProfile() {
-			account.updateProfile(user).then(function (userData) {
+			account.updateProfile(vm.user).then(function (userData) {
 				vm.user = profileData
 			}).catch(function (err) {
 				console.log('something went wrong')

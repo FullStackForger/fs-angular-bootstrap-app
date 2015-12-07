@@ -5,8 +5,8 @@
 		.module('IFSP.App.Pages.Profile')
 		.controller('ProfileController', ProfileController);
 
-	ProfileController.$inject = ['account'];
-	function ProfileController(account) {
+	ProfileController.$inject = ['account', 'toastr'];
+	function ProfileController(account, toastr) {
 		var vm = this;
 		vm.user = {}
 		vm.getProfile = getProfile
@@ -18,15 +18,15 @@
 			account.getProfile().then(function (userData) {
 				vm.user = userData.data
 			}).catch(function (err) {
-				console.log('profile data could not be fetched')
+				toastr.error(err.message)
 			})
 		}
 
 		function updateProfile() {
 			account.updateProfile(vm.user).then(function () {
-				console.log('user data saved')
+				toastr.success('Profile has been updated.')
 			}).catch(function (err) {
-				console.log('something went wrong')
+				toastr.error(err.message)
 			})
 		}
 	}

@@ -5,7 +5,8 @@ const Mongoose = require('mongoose')
 const userSchema = new Mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
-  username: { type: String }
+  username: { type: String },
+	bio: { type: String, maxlength: 160 }
 })
 
 userSchema.pre('save', function(next) {

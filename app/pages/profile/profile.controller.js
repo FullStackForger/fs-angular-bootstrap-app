@@ -23,8 +23,8 @@
 		}
 
 		function updateProfile() {
-			account.updateProfile(vm.user).then(function (userData) {
-				vm.user = profileData
+			account.updateProfile(vm.user).then(function () {
+				console.log('user data saved')
 			}).catch(function (err) {
 				console.log('something went wrong')
 			})

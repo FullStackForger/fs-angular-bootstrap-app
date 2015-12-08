@@ -36,6 +36,7 @@ describe('IFSP.App.Pages.Logout Controller', function() {
 		mock.logoutDeferred = $q.defer()
 		mock.createController = function () {
 			return $controller('LogoutController', {
+				$scope: $rootScope.$new(),
 				$location: _$location_,
 				$auth: _$auth_,
 				$interval: _$interval_,

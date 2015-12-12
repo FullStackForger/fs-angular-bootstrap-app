@@ -39,6 +39,7 @@ app/vendor
 *.swn
 
 # configuration
+app/config.js
 [Cc]onfig/
 
 # distribution

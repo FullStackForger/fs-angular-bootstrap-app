@@ -7,25 +7,31 @@
 		'satellizer',
 		'toastr',
 		// local depdenencies
+		'IFSP.Config',
 		'IFSP.App.Pages',
 		'IFSP.App.Common'
 	])
 
-	app.config(['$routeProvider', '$locationProvider', '$authProvider',
-		function ($routeProvider, $locationProvider, $authProvider) {
+	app.config(['$routeProvider', '$locationProvider', '$authProvider', 'config',
+		function ($routeProvider, $locationProvider, $authProvider, config) {
 
+			console.log(config)
+
+			// configuring authProvider
+			$authProvider.baseUrl = config.apiUrl
+			$authProvider.loginUrl = config.api.auth.login
+			$authProvider.signupUrl = config.api.auth.signup
+			$authProvider.unlinkUrl = config.api.auth.unlink
+			$authProvider.facebook({
+				clientId: '771579649652176'
+			})
+
+
+			// configuring routes
 			$routeProvider.otherwise({
 				redirectTo: '/home'
 			})
 
-			$authProvider.baseUrl = '/'
-			$authProvider.loginUrl = '/api/auth/login'
-			$authProvider.signupUrl = '/api/auth/signup'
-			$authProvider.unlinkUrl = '/api/auth/unlink'
-
-			$authProvider.facebook({
-				clientId: '771579649652176'
-			})
 		}])
 
 })()

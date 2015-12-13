@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('IFSP.App.Common', [
+	angular.module('app.com', [
 		'satellizer',
 		'toastr'
 	]);

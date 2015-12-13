@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('IFSP.App.Common')
+		.module('app.com')
 		.factory('account', function($http, $q) {
 			return {
 				getProfile: function() {

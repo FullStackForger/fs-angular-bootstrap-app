@@ -2,7 +2,7 @@
 'use strict';
 
 	angular
-		.module('IFSP.App.Common')
+		.module('app.com')
 		.constant('resolver', {
 			allowRegisteredOnly: allowRegisteredOnly,
 			allowGuestOnly: allowGuestOnly

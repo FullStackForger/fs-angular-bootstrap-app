@@ -2,7 +2,7 @@
 'use strict';
 
 	angular
-		.module('IFSP.App.Common')
+		.module('app.com')
 		.controller('NavbarController', NavbarController);
 
 	NavbarController.$inject = ['$auth'];

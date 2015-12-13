@@ -21,7 +21,7 @@ npm-debug.log
 
 # Bower components
 # bower_components
-app/vendor
+client/vendor
 
 # IntelliJ IDEA files
 .idea
@@ -39,7 +39,7 @@ app/vendor
 *.swn
 
 # configuration
-app/config.js
+client/config.js
 [Cc]onfig/
 
 # distribution

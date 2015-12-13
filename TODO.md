@@ -10,4 +10,6 @@
 [ ] app > e2e > route tests
 [ ] app > gulp: build script
 [ ] development mocks (profile, login, signin)
-[ ] build script
+[x] `gulp config`
+[x] `gulp clean`
+[ ] `gulp js`

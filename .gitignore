@@ -43,5 +43,5 @@ app/config.js
 [Cc]onfig/
 
 # distribution
-dist
-build
+[Dd]ist
+[Bb]uild

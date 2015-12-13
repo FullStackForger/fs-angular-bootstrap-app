@@ -3,7 +3,7 @@
 	angular
 		.module('IFSP.App.Pages.Profile', [
 			'ngRoute',
-			'IFSP.App.Common',
+			'app.com',
 			'satellizer',
 			'toastr'
 		]).config(['$routeProvider', 'resolver', function ($routeProvider, resolver) {

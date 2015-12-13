@@ -3,7 +3,7 @@
 	angular
 		.module('IFSP.App.Pages.Signup', [
 			'ngRoute',
-			'IFSP.App.Common'
+			'app.com'
 		])
 		.config(['$routeProvider', 'resolver', function($routeProvider, resolver) {
 

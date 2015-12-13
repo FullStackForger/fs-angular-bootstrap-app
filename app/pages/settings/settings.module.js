@@ -1,7 +1,7 @@
 (function () {
 	var module = angular.module('IFSP.App.Pages.Settings', [
 		'ngRoute',
-		'IFSP.App.Common'
+		'app.com'
 	])
 
 	module.config(['$routeProvider', 'resolver',

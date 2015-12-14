@@ -2,7 +2,7 @@ describe('IFSP.App.Pages.Logout', function() {
 	'use strict'
 	var
 		moduleRoute = '/logout',
-		templateUrl = 'pages/logout/logout.tpl.html',
+		templateUrl = 'app/pages/logout/logout.tpl.html',
 		controllerStr = 'LogoutController as logoutCtrl'
 
 	beforeEach(module('IFSP.App.Pages.Logout'))

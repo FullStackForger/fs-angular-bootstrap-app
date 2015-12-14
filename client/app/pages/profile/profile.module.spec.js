@@ -2,7 +2,7 @@ describe('IFSP.App.Pages.Profile', function() {
 	'use strict'
 	var
 		moduleRoute = '/profile',
-		templateUrl = 'pages/profile/profile.tpl.html',
+		templateUrl = 'app/pages/profile/profile.tpl.html',
 		controllerStr = 'ProfileController as profileCtrl'
 
 	beforeEach(module('IFSP.App.Pages.Profile'))

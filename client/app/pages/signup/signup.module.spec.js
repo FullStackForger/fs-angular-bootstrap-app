@@ -2,7 +2,7 @@ describe('IFSP.App.Pages.Signup', function() {
 	'use strict'
 	var
 		moduleRoute = '/signup',
-		templateUrl = 'pages/signup/signup.tpl.html',
+		templateUrl = 'app/pages/signup/signup.tpl.html',
 		controllerStr = 'SignupController as signupCtrl'
 
 	beforeEach(module('IFSP.App.Pages.Signup'))

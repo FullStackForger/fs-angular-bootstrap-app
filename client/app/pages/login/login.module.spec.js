@@ -1,7 +1,7 @@
 describe('IFSP.App.Pages.Login', function() {
 	'use strict'
 	var moduleRoute = '/login',
-		templateUrl = 'pages/login/login.tpl.html',
+		templateUrl = 'app/pages/login/login.tpl.html',
 		controllerStr = 'LoginController as loginCtrl';
 
 	beforeEach(module('IFSP.App.Pages.Login'));

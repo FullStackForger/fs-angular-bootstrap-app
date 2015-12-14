@@ -1,19 +1,29 @@
 'use strict'
+const argv = require('yargs').argv
+const clean = require('gulp-clean')
 const concat = require('gulp-concat')
 const es = require('event-stream')
 const gulp = require('gulp')
+const ngAnnotate = require('gulp-ng-annotate')
 const ngConstant = require('gulp-ng-constant')
-const argv = require('yargs').argv
 const rename = require('gulp-rename')
+
 const enviroment = argv.env || 'development'
+const settings = {
+	"path": {
+		"distParent": "./client/dist/",
+		"srcParent": "./client/app/",
+		"devParent": "./client/dev/",
+		"scripts": "scripts/"
+	}
+}
 
 gulp.task('config', function () {
-  let scripts = gulp.src('js/*')
-	let config = require(`./app/dev/config.${enviroment}.json`)
+	let config = require(settings.path.devParent + `config.${enviroment}.json`)
 	let task = ngConstant({
 		constants: { config: config },
 		stream: true,
-		name: 'IFSP.Config',
+		name: 'app.config',
 		indent: '',
 		space: '\t',
 		wrap: false
@@ -21,7 +31,7 @@ gulp.task('config', function () {
 
 	return task
 		.pipe(rename('config.js'))
-		.pipe(gulp.dest('app/'))
+		.pipe(gulp.dest('client/'))
 		.on('error', function (err) {
 			console.error(err)
 		})

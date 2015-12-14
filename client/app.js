@@ -7,8 +7,8 @@
 		'satellizer',
 		'toastr',
 		// local depdenencies
+		'app.config',
 		'app.com',
-		'IFSP.Config',
 		'IFSP.App.Pages'
 	])
 

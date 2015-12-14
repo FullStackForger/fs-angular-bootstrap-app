@@ -11,20 +11,21 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
 		files: [
 			// dependencies
-			'app/vendor/angular/angular.js',
-			'app/vendor/angular-route/angular-route.js',
-			'app/vendor/angular-mocks/angular-mocks.js',
-			'app/vendor/satellizer/dist/satellizer.js',
-			'app/vendor/angular-toastr/dist/angular-toastr.tpls.js',
-					//'app/vendor/angular-sanitize/angular-sanitize.js',
-					//'app/vendor/angular-bootstrap/ui-bootstrap.js',
-					//'app/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
+			'client/vendor/angular/angular.js',
+			'client/vendor/angular-route/angular-route.js',
+			'client/vendor/angular-mocks/angular-mocks.js',
+			'client/vendor/satellizer/dist/satellizer.js',
+			'client/vendor/angular-toastr/dist/angular-toastr.tpls.js',
+					//'client/vendor/angular-sanitize/angular-sanitize.js',
+					//'client/vendor/angular-bootstrap/ui-bootstrap.js',
+					//'client/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
 			// app modules
-			'app/app.js',
-			'app/common/common.module.js',
-			'app/common/*.js',
-			'app/pages/**/*.module.js',
-			'app/pages/**/*.js',
+			'client/app.js',
+			'client/config.js',
+			'client/app/com/common.module.js',
+			'client/app/com/*.js',
+			'client/app/pages/**/*.module.js',
+			'client/app/pages/**/*.js',
 			// templates
 			//'app/modules/**/*.tpl.html'
 		],

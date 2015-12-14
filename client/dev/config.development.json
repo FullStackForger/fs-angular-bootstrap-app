@@ -1,7 +1,7 @@
 {
 	"env": "development",
-	"apiUrl": "//localcost:8080/api",
-	"appUrl": "//indieforger.com/app",
+	"apiUrl": "http://localcost:8080/api",
+	"appUrl": "http://indieforger.com/app",
 	"basePath": "/app",
 	"api": {
 		"auth": {

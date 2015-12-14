@@ -6,7 +6,7 @@
 
 			$routeProvider.when('/login', {
 				controller: 'LoginController as loginCtrl',
-				templateUrl: 'pages/login/login.tpl.html',
+				templateUrl: 'app/pages/login/login.tpl.html',
 				resolve: {
 					isAllowed: resolver.allowGuestOnly
 				}

@@ -9,7 +9,7 @@
 
 			$routeProvider.when('/signup', {
 				controller: 'SignupController as signupCtrl',
-				templateUrl: 'pages/signup/signup.tpl.html',
+				templateUrl: 'app/pages/signup/signup.tpl.html',
 					resolve: {
 						isAllowed: resolver.allowGuestOnly
 					}

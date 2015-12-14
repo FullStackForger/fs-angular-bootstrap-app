@@ -6,7 +6,7 @@
 		])
 		.config(['$routeProvider', function($routeProvider) {
 			$routeProvider.when('/info', {
-				templateUrl: 'pages/info/info.tpl.html',
+				templateUrl: 'app/pages/info/info.tpl.html',
 			})
 		}])
 })()

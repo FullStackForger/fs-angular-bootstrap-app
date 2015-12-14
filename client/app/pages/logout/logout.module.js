@@ -8,7 +8,7 @@
 		$routeProvider
 			.when('/logout', {
 				controller: 'LogoutController as logoutCtrl',
-				templateUrl: 'pages/logout/logout.tpl.html'
+				templateUrl: 'app/pages/logout/logout.tpl.html'
 			})
 	}])
 })()

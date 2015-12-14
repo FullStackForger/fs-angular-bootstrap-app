@@ -8,7 +8,7 @@
 		function($routeProvider, resolver) {
 
 		$routeProvider.when('/settings', {
-			templateUrl: 'pages/settings/settings.tpl.html',
+			templateUrl: 'app/pages/settings/settings.tpl.html',
 			resolve: {
 				canAccess: resolver.allowRegisteredOnly
 			}

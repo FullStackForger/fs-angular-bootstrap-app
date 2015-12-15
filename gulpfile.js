@@ -17,19 +17,19 @@ const rename = require('gulp-rename')
 const enviroment = argv.env || 'development'
 const settings = {
 	"path": {
-		"build": "./client/dist/",
-		"source": "./client/",
-		"devParent": "./client/dev/",
-		"scripts": [
-			"!client/**/*.spec.js",
-			"client/app.js",
-			"client/config.js",
-			"client/app/com/**/*.module.js",
-			"client/app/com/**/*.js",
-			"client/app/**/*.module.js",
-			"client/app/**/*.js"
-		],
-	}
+		"build": "client/dist/",
+		"source": "client/",
+		"devParent": "client/dev/"
+	},
+	"scripts": [
+		"!client/**/*.spec.js",
+		"client/app.js",
+		"client/config.js",
+		"client/app/com/**/*.module.js",
+		"client/app/com/**/*.js",
+		"client/app/**/*.module.js",
+		"client/app/**/*.js"
+	]
 }
 
 gulp.task('config', function () {
@@ -62,13 +62,13 @@ gulp.task('js', ['clean'], function () {
     // .pipe(concat('app.js'))
     // .pipe(gulp.dest(settings.path.build + settings.path.scripts))
 
-		return gulp.src(settings.path.scripts)
+		return gulp.src(settings.scripts)
 			.pipe(footer(';'))
 			.pipe(concat('app.js'))
 			.pipe(gulp.dest(settings.path.build))
 })
 
-gulp.task('index', function () {
+gulp.task('index-dist', function () {
   var target = gulp.src(settings.path.source + 'index.html')
   var sources = gulp.src([
 		//settings.path.build + '**/*.css',
@@ -78,4 +78,16 @@ gulp.task('index', function () {
   return target
 		.pipe(inject(sources))
     .pipe(gulp.dest(settings.path.build))
-});
+})
+
+gulp.task('index-dev', function () {
+  var target = gulp.src(settings.path.source + 'index.html')
+  var sources = gulp.src(settings.scripts, { read: false })
+
+  return target
+		.pipe(inject(sources, {
+			// gulp inject prefixes paths with '/{root_dir}'
+			ignorePath: '/' + settings.path.source
+		}))
+    .pipe(gulp.dest(settings.path.source))
+})

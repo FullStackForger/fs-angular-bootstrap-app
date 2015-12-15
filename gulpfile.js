@@ -23,7 +23,7 @@ const settings = {
 		"build": 			"client/dist/",
 		"source": 		"client/",
 		"devParent": 	"client/dev/",
-		"indexTpl": 	"index.tpl.html",
+		"indexTpl": 	"client/index.tpl.html",
 		"index": 			"index.html"
 	},
 	"scripts": [
@@ -63,6 +63,11 @@ gulp.task('config', function () {
 		})
 })
 
+
+gulp.task('purge-index', function() {
+		return gulp.src(settings.path.source + settings.path.index, { read: false })
+		.pipe(clean())
+})
 
 gulp.task('purge-dist', function() {
 		return gulp.src(settings.path.build, { read: false })

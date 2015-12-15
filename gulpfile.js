@@ -29,6 +29,9 @@ const settings = {
 		"client/app/com/**/*.js",
 		"client/app/**/*.module.js",
 		"client/app/**/*.js"
+	],
+	"styles": [
+		"client/stylesheets/*.css"
 	]
 }
 
@@ -82,7 +85,8 @@ gulp.task('index-dist', function () {
 
 gulp.task('index-dev', function () {
   var target = gulp.src(settings.path.source + 'index.html')
-  var sources = gulp.src(settings.scripts, { read: false })
+	var scripts = Array.prototype.concat(settings.scripts, settings.styles)
+  var sources = gulp.src(scripts, { read: false })
 
   return target
 		.pipe(inject(sources, {

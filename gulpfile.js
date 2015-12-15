@@ -14,12 +14,17 @@ const ngAnnotate = require('gulp-ng-annotate')
 const ngConstant = require('gulp-ng-constant')
 const rename = require('gulp-rename')
 
+// --------------------------------
+// configuration
+// --------------------------------
 const enviroment = argv.env || 'development'
 const settings = {
 	"path": {
-		"build": "client/dist/",
-		"source": "client/",
-		"devParent": "client/dev/"
+		"build": 			"client/dist/",
+		"source": 		"client/",
+		"devParent": 	"client/dev/",
+		"indexTpl": 	"index.tpl.html",
+		"index": 			"index.html"
 	},
 	"scripts": [
 		"!client/**/*.spec.js",
@@ -35,8 +40,12 @@ const settings = {
 	]
 }
 
+// --------------------------------
+// tasks
+// --------------------------------
+
 gulp.task('config', function () {
-	let config = require(settings.path.devParent + `config.${enviroment}.json`)
+	let config = require('./' + settings.path.devParent + `config.${enviroment}.json`)
 	let task = ngConstant({
 		constants: { config: config },
 		stream: true,
@@ -59,7 +68,7 @@ gulp.task('clean', function() {
 		.pipe(clean())
 })
 
-gulp.task('js', ['clean'], function () {
+gulp.task('concat', ['clean'], function () {
     // gulp.src(settings.path.source)
     // .pipe(ngAnnotate())
     // .pipe(concat('app.js'))
@@ -84,7 +93,7 @@ gulp.task('index-dist', function () {
 })
 
 gulp.task('index-dev', function () {
-  var target = gulp.src(settings.path.source + 'index.html')
+  var target = gulp.src(settings.path.indexTpl)
 	var scripts = Array.prototype.concat(settings.scripts, settings.styles)
   var sources = gulp.src(scripts, { read: false })
 
@@ -93,5 +102,6 @@ gulp.task('index-dev', function () {
 			// gulp inject prefixes paths with '/{root_dir}'
 			ignorePath: '/' + settings.path.source
 		}))
+		.pipe(concat(settings.path.index))
     .pipe(gulp.dest(settings.path.source))
 })

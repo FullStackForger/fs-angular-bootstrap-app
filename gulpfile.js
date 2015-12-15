@@ -63,12 +63,13 @@ gulp.task('config', function () {
 		})
 })
 
-gulp.task('clean', function() {
+
+gulp.task('purge-dist', function() {
 		return gulp.src(settings.path.build, { read: false })
 		.pipe(clean())
 })
 
-gulp.task('concat', ['clean'], function () {
+gulp.task('concat', ['purge-dist'], function () {
     // gulp.src(settings.path.source)
     // .pipe(ngAnnotate())
     // .pipe(concat('app.js'))

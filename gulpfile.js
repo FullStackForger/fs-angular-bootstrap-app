@@ -1,10 +1,15 @@
 'use strict'
+// ------------------------------------------
+// https://github.com/jbouzekri/angular-gulp-skeleton
+// ---------------------------------------------------
+
 const argv = require('yargs').argv
 const clean = require('gulp-clean')
 const concat = require('gulp-concat')
 const es = require('event-stream')
 const footer = require('gulp-footer')
 const gulp = require('gulp')
+const inject = require('gulp-inject')
 const ngAnnotate = require('gulp-ng-annotate')
 const ngConstant = require('gulp-ng-constant')
 const rename = require('gulp-rename')
@@ -12,8 +17,8 @@ const rename = require('gulp-rename')
 const enviroment = argv.env || 'development'
 const settings = {
 	"path": {
-		"distParent": "./client/dist/",
-		"srcParent": "./client/app/",
+		"build": "./client/dist/",
+		"source": "./client/",
 		"devParent": "./client/dev/",
 		"scripts": [
 			"!client/**/*.spec.js",
@@ -47,18 +52,30 @@ gulp.task('config', function () {
 })
 
 gulp.task('clean', function() {
-		return gulp.src(settings.path.distParent, { read: false })
+		return gulp.src(settings.path.build, { read: false })
 		.pipe(clean())
 })
 
 gulp.task('js', ['clean'], function () {
-    // gulp.src(settings.path.srcParent)
+    // gulp.src(settings.path.source)
     // .pipe(ngAnnotate())
     // .pipe(concat('app.js'))
-    // .pipe(gulp.dest(settings.path.distParent + settings.path.scripts))
+    // .pipe(gulp.dest(settings.path.build + settings.path.scripts))
 
 		return gulp.src(settings.path.scripts)
 			.pipe(footer(';'))
 			.pipe(concat('app.js'))
-			.pipe(gulp.dest(settings.path.distParent))
+			.pipe(gulp.dest(settings.path.build))
 })
+
+gulp.task('index', function () {
+  var target = gulp.src(settings.path.source + 'index.html')
+  var sources = gulp.src([
+		//settings.path.build + '**/*.css',
+		settings.path.build + '**/*.js'
+	], { read: false })
+
+  return target
+		.pipe(inject(sources))
+    .pipe(gulp.dest(settings.path.build))
+});

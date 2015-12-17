@@ -1,6 +1,6 @@
 (function () {
 	angular
-		.module('app.pages.Info', [
+		.module('app.pages.info', [
 			'ngRoute',
 			'satellizer',
 		])

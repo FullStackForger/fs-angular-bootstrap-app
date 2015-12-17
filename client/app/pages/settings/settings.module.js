@@ -1,5 +1,5 @@
 (function () {
-	var module = angular.module('app.pages.Settings', [
+	var module = angular.module('app.pages.settings', [
 		'ngRoute',
 		'app.com'
 	])

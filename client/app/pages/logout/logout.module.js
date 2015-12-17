@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	var module = angular.module('app.pages.Logout', [
+	var module = angular.module('app.pages.logout', [
 		'ngRoute'
 	])
 

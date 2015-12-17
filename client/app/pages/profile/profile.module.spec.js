@@ -1,11 +1,11 @@
-describe('app.pages.Profile', function() {
+describe('app.pages.profile', function() {
 	'use strict'
 	var
 		moduleRoute = '/profile',
 		templateUrl = 'app/pages/profile/profile.tpl.html',
 		controllerStr = 'ProfileController as profileCtrl'
 
-	beforeEach(module('app.pages.Profile'))
+	beforeEach(module('app.pages.profile'))
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {

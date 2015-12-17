@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('app.pages.Profile', [
+		.module('app.pages.profile', [
 			'ngRoute',
 			'app.com',
 			'satellizer',

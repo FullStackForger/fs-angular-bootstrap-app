@@ -2,7 +2,7 @@
 'use strict'
 
 	angular
-		.module('app.pages.Signup')
+		.module('app.pages.signup')
 		.controller('SignupController', SignupController)
 
 	SignupController.$inject = ['$location', '$auth', 'toastr']

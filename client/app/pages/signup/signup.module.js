@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('app.pages.Signup', [
+		.module('app.pages.signup', [
 			'ngRoute',
 			'app.com'
 		])

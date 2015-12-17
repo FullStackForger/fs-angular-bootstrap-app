@@ -1,7 +1,7 @@
 (function() {
 	'use strict'
 	angular
-		.module('app.pages.Login')
+		.module('app.pages.login')
 		.controller('LoginController', LoginController)
 
 	LoginController.$inject = ['$location', '$auth', 'toastr']

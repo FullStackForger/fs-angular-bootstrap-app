@@ -1,10 +1,10 @@
-describe('app.pages.Login', function() {
+describe('app.pages.login', function() {
 	'use strict'
 	var moduleRoute = '/login',
 		templateUrl = 'app/pages/login/login.tpl.html',
 		controllerStr = 'LoginController as loginCtrl';
 
-	beforeEach(module('app.pages.Login'));
+	beforeEach(module('app.pages.login'));
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {

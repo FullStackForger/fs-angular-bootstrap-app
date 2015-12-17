@@ -1,4 +1,4 @@
-describe('app.pages.Login LoginController', function () {
+describe('app.pages.login LoginController', function () {
 	'use strict'
 	var $controller, $q, $rootScope, loginCtrl, mock
 
@@ -31,7 +31,7 @@ describe('app.pages.Login LoginController', function () {
 	// -----------------------------
 	// test setup
 	// -----------------------------
-	beforeEach(module('app.pages.Login'))
+	beforeEach(module('app.pages.login'))
 	beforeEach(module(function ($provide) {
 		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)

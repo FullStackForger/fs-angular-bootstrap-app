@@ -1,4 +1,4 @@
-describe('app.pages.Signup SignupController', function() {
+describe('app.pages.signup SignupController', function() {
 	'use strict'
 	var $controller, $q, $rootScope, logoutCtrl, $location, mock, ctrl
  // -----------------------------
@@ -28,7 +28,7 @@ describe('app.pages.Signup SignupController', function() {
 	// -----------------------------
 	// test setup
 	// -----------------------------
-	beforeEach(module('app.pages.Signup'))
+	beforeEach(module('app.pages.signup'))
 
 	beforeEach(module(function($provide) {
 		$provide.value('$auth', mock.$auth)

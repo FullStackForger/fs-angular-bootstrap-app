@@ -1,11 +1,11 @@
 (function () {
 	angular.module('app.pages', [
-		'app.pages.Home',
-		'app.pages.Info',
-		'app.pages.Login',
-		'app.pages.Logout',
-		'app.pages.Profile',
-		'app.pages.Signup',
-		'app.pages.Settings'
+		'app.pages.home',
+		'app.pages.info',
+		'app.pages.login',
+		'app.pages.logout',
+		'app.pages.profile',
+		'app.pages.signup',
+		'app.pages.settings'
 	])
 })()

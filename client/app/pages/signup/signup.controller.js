@@ -2,7 +2,7 @@
 'use strict'
 
 	angular
-		.module('IFSP.App.Pages.Signup')
+		.module('app.pages.Signup')
 		.controller('SignupController', SignupController)
 
 	SignupController.$inject = ['$location', '$auth', 'toastr']

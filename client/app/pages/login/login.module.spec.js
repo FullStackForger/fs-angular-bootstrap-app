@@ -1,10 +1,10 @@
-describe('IFSP.App.Pages.Login', function() {
+describe('app.pages.Login', function() {
 	'use strict'
 	var moduleRoute = '/login',
 		templateUrl = 'app/pages/login/login.tpl.html',
 		controllerStr = 'LoginController as loginCtrl';
 
-	beforeEach(module('IFSP.App.Pages.Login'));
+	beforeEach(module('app.pages.Login'));
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {

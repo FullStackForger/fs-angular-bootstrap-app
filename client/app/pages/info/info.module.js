@@ -1,6 +1,6 @@
 (function () {
 	angular
-		.module('IFSP.App.Pages.Info', [
+		.module('app.pages.Info', [
 			'ngRoute',
 			'satellizer',
 		])

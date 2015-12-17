@@ -2,7 +2,7 @@
 'use strict';
 
 	angular
-		.module('IFSP.App.Pages.Profile')
+		.module('app.pages.Profile')
 		.controller('ProfileController', ProfileController);
 
 	ProfileController.$inject = ['account', 'toastr'];

@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('IFSP.App.Pages.Login', ['ngRoute', 'app.com'])
+		.module('app.pages.Login', ['ngRoute', 'app.com'])
 		.config(['$routeProvider', 'resolver', function ($routeProvider, resolver) {
 
 			$routeProvider.when('/login', {

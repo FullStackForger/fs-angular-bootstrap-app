@@ -2,7 +2,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('IFSP.App.Pages.Login')
+		.module('app.pages.Login')
 		.service('loginService', LoginService)
 
 	LoginService.$inject = ['$http', '$q']

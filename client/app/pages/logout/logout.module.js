@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	var module = angular.module('IFSP.App.Pages.Logout', [
+	var module = angular.module('app.pages.Logout', [
 		'ngRoute'
 	])
 

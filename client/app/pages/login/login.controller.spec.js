@@ -1,4 +1,4 @@
-describe('IFSP.App.Pages.Login LoginController', function () {
+describe('app.pages.Login LoginController', function () {
 	'use strict'
 	var $controller, $q, $rootScope, loginCtrl, mock
 
@@ -31,7 +31,7 @@ describe('IFSP.App.Pages.Login LoginController', function () {
 	// -----------------------------
 	// test setup
 	// -----------------------------
-	beforeEach(module('IFSP.App.Pages.Login'))
+	beforeEach(module('app.pages.Login'))
 	beforeEach(module(function ($provide) {
 		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)

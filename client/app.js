@@ -9,7 +9,7 @@
 		// local depdenencies
 		'app.config',
 		'app.com',
-		'IFSP.App.Pages'
+		'app.pages'
 	])
 
 	app.config(['$routeProvider', '$locationProvider', '$authProvider', 'config',

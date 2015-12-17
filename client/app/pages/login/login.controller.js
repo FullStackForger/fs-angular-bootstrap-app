@@ -1,7 +1,7 @@
 (function() {
 	'use strict'
 	angular
-		.module('IFSP.App.Pages.Login')
+		.module('app.pages.Login')
 		.controller('LoginController', LoginController)
 
 	LoginController.$inject = ['$location', '$auth', 'toastr']

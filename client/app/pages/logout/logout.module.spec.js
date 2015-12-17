@@ -1,11 +1,11 @@
-describe('IFSP.App.Pages.Logout', function() {
+describe('app.pages.Logout', function() {
 	'use strict'
 	var
 		moduleRoute = '/logout',
 		templateUrl = 'app/pages/logout/logout.tpl.html',
 		controllerStr = 'LogoutController as logoutCtrl'
 
-	beforeEach(module('IFSP.App.Pages.Logout'))
+	beforeEach(module('app.pages.Logout'))
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {

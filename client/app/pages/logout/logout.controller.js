@@ -1,7 +1,7 @@
 (function() {
 'use strict'
 	angular
-		.module('IFSP.App.Pages.Logout')
+		.module('app.pages.Logout')
 		.controller('LogoutController', LogoutController)
 
 	LogoutController.$inject = ['$scope', '$location', '$auth', '$interval', 'toastr']

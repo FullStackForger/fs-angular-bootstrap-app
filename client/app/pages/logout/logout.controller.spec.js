@@ -1,4 +1,4 @@
-describe('IFSP.App.Pages.Logout Controller', function() {
+describe('app.pages.Logout Controller', function() {
 	'use strict'
 	var $controller, $q, $rootScope, logoutCtrl, $location, mock
  // -----------------------------
@@ -22,7 +22,7 @@ describe('IFSP.App.Pages.Logout Controller', function() {
 	// -----------------------------
 	// test setup
 	// -----------------------------
-	beforeEach(module('IFSP.App.Pages.Logout'))
+	beforeEach(module('app.pages.Logout'))
 	beforeEach(module(function($provide) {
 		$provide.value('$auth', mock.$auth)
 		$provide.value('toastr', mock.toastr)

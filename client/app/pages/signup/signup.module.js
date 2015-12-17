@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('IFSP.App.Pages.Signup', [
+		.module('app.pages.Signup', [
 			'ngRoute',
 			'app.com'
 		])

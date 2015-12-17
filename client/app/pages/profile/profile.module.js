@@ -1,7 +1,7 @@
 (function () {
 	'use strict'
 	angular
-		.module('IFSP.App.Pages.Profile', [
+		.module('app.pages.Profile', [
 			'ngRoute',
 			'app.com',
 			'satellizer',

@@ -1,6 +1,6 @@
 (function () {
 	angular
-		.module('IFSP.App.Pages.Home', ['ngRoute'])
+		.module('app.pages.Home', ['ngRoute'])
 		.config(['$routeProvider', function($routeProvider) {
 			$routeProvider.when('/home', {
 				templateUrl: 'app/pages/home/home.tpl.html',

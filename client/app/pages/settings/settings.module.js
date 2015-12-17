@@ -1,5 +1,5 @@
 (function () {
-	var module = angular.module('IFSP.App.Pages.Settings', [
+	var module = angular.module('app.pages.Settings', [
 		'ngRoute',
 		'app.com'
 	])

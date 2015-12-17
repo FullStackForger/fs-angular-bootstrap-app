@@ -1,11 +1,11 @@
-describe('IFSP.App.Pages.Signup', function() {
+describe('app.pages.Signup', function() {
 	'use strict'
 	var
 		moduleRoute = '/signup',
 		templateUrl = 'app/pages/signup/signup.tpl.html',
 		controllerStr = 'SignupController as signupCtrl'
 
-	beforeEach(module('IFSP.App.Pages.Signup'))
+	beforeEach(module('app.pages.Signup'))
 
 	describe('auto routing', function() {
 		it('should load the template', inject(function($route) {

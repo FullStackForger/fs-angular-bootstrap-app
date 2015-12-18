@@ -64,12 +64,12 @@ gulp.task('config', function () {
 })
 
 
-gulp.task('purge-index', function() {
+gulp.task('purge', function() {
 		return gulp.src(settings.path.source + settings.path.index, { read: false })
 		.pipe(clean())
 })
 
-gulp.task('purge-dist', function() {
+gulp.task('purge:dist', function() {
 		return gulp.src(settings.path.build, { read: false })
 		.pipe(clean())
 })
@@ -86,19 +86,7 @@ gulp.task('concat', ['purge-dist'], function () {
 			.pipe(gulp.dest(settings.path.build))
 })
 
-gulp.task('index-dist', function () {
-  var target = gulp.src(settings.path.source + 'index.html')
-  var sources = gulp.src([
-		//settings.path.build + '**/*.css',
-		settings.path.build + '**/*.js'
-	], { read: false })
-
-  return target
-		.pipe(inject(sources))
-    .pipe(gulp.dest(settings.path.build))
-})
-
-gulp.task('index-dev', function () {
+gulp.task('index', function () {
   var target = gulp.src(settings.path.indexTpl)
 	var scripts = Array.prototype.concat(settings.scripts, settings.styles)
   var sources = gulp.src(scripts, { read: false })
@@ -110,4 +98,16 @@ gulp.task('index-dev', function () {
 		}))
 		.pipe(concat(settings.path.index))
     .pipe(gulp.dest(settings.path.source))
+})
+
+gulp.task('index:dist', function () {
+  var target = gulp.src(settings.path.source + 'index.html')
+  var sources = gulp.src([
+		//settings.path.build + '**/*.css',
+		settings.path.build + '**/*.js'
+	], { read: false })
+
+  return target
+		.pipe(inject(sources))
+    .pipe(gulp.dest(settings.path.build))
 })

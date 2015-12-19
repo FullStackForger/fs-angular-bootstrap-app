@@ -134,3 +134,4 @@ gulp.task('index', ['purge'], function () {
 })
 
 gulp.task('default', ['config', 'index'])
+gulp.task('build', ['index:dist'])

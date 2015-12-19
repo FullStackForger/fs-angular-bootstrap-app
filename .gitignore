@@ -1,6 +1,7 @@
 # Logs and temp files
 [Ll]ogs/
 [Tt]emp/
+.tmp/
 *.log
 
 # Runtime data

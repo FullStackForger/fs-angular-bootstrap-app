@@ -21,9 +21,11 @@ const wiredep = require('wiredep').stream // https://github.com/taptapship/wired
 const enviroment = argv.env || 'development'
 const settings = {
 	"path": {
+		"temp": 			"client/.tmp/",
 		"build": 			"client/dist/",
 		"source": 		"client/",
 		"devParent": 	"client/dev/",
+		"templates":	"app.templates.js",
 		"indexTpl": 	"client/index.tpl.html",
 		"index": 			"index.html"
 	},
@@ -38,6 +40,9 @@ const settings = {
 	],
 	"styles": [
 		"client/stylesheets/*.css"
+	],
+	"templates": [
+		"client/**/*.tpl.html"
 	]
 }
 
@@ -67,21 +72,33 @@ gulp.task('config', function () {
 
 gulp.task('purge', function() {
 		return gulp.src(settings.path.source + settings.path.index, { read: false })
-		.pipe(clean())
+			.pipe(clean())
 })
 
 gulp.task('purge:dist', function() {
 		return gulp.src(settings.path.build, { read: false })
+			.pipe(clean())
+})
+
+gulp.task('purge:tmp', function () {
+	return gulp.src(settings.path.temp, {read: false})
 		.pipe(clean())
 })
 
-gulp.task('concat:dist', ['purge:dist'], function () {
-    // gulp.src(settings.path.source)
-    // .pipe(ngAnnotate())
-    // .pipe(concat('app.js'))
-    // .pipe(gulp.dest(settings.path.build + settings.path.scripts))
+gulp.task('templates:dist', ['purge:tmp'], function () {
+  return gulp.src(settings.templates)
+    .pipe(templateCache({
+			module: 'app'
+		}))
+		.pipe(concat(settings.path.templates))
+    .pipe(gulp.dest(settings.path.temp))
+});
 
-		return gulp.src(settings.scripts)
+gulp.task('concat:dist', ['purge:dist', 'templates:dist'], function () {
+		return gulp.src(Array.prototype.concat(
+				settings.scripts,
+				settings.path.temp + settings.path.templates // add templates
+			))
 			.pipe(footer(';'))
 			.pipe(concat('app.js'))
 			.pipe(gulp.dest(settings.path.build))
@@ -114,5 +131,7 @@ gulp.task('index', ['purge'], function () {
 		.pipe(concat(settings.path.index))
    	.pipe(gulp.dest(settings.path.source))
 })
+
+var templateCache = require('gulp-angular-templatecache');
 
 gulp.task('default', ['config', 'index'])

@@ -13,6 +13,7 @@ const inject = require('gulp-inject')
 const ngAnnotate = require('gulp-ng-annotate')
 const ngConstant = require('gulp-ng-constant')
 const rename = require('gulp-rename')
+const templateCache = require('gulp-angular-templatecache')
 const wiredep = require('wiredep').stream // https://github.com/taptapship/wiredep#gulpjs
 
 // --------------------------------
@@ -92,7 +93,7 @@ gulp.task('templates:dist', ['purge:tmp'], function () {
 		}))
 		.pipe(concat(settings.path.templates))
     .pipe(gulp.dest(settings.path.temp))
-});
+})
 
 gulp.task('concat:dist', ['purge:dist', 'templates:dist'], function () {
 		return gulp.src(Array.prototype.concat(
@@ -131,7 +132,5 @@ gulp.task('index', ['purge'], function () {
 		.pipe(concat(settings.path.index))
    	.pipe(gulp.dest(settings.path.source))
 })
-
-var templateCache = require('gulp-angular-templatecache');
 
 gulp.task('default', ['config', 'index'])

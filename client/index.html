@@ -9,8 +9,10 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-toastr/1.7.0/angular-toastr.css" />
 
+ 	<!-- bower:css -->
+ 	<link rel="stylesheet" href="vendor/angular-toastr/dist/angular-toastr.css" />
+ 	<!-- endbower -->
 	<!-- inject:css -->
   <link rel="stylesheet" href="/stylesheets/main.css">
   <link rel="stylesheet" href="/stylesheets/social-btns.css">
@@ -21,13 +23,15 @@
 <div ng-include="'app/com/navbar.tpl.html'"></div>
 <ng-view></ng-view>
 
-<!-- vendor scripts -->
+<!-- bower:js -->
 <script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-animate/angular-animate.js"></script>
+<script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="vendor/angular-route/angular-route.js"></script>
+<script src="vendor/angular-sanitize/angular-sanitize.js"></script>
 <script src="vendor/satellizer/dist/satellizer.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-toastr/1.7.0/angular-toastr.tpls.js"></script>
-
+<script src="vendor/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<!-- endbower -->
 <!-- inject:js -->
 <script src="/app.js"></script>
 <script src="/config.js"></script>

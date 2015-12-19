@@ -4,13 +4,15 @@
   "homepage": "https://github.com/sahat/ngAuth",
   "license": "MIT",
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-animate": "~1.4.7",
+    "angular": "1.4.12",
+    "angular-animate": "1.4.12",
     "angular-bootstrap": "~0.14.2",
-    "angular-route": "~1.4.0",
-    "angular-mocks": "~1.4.0",
-    "bootstrap": "~3.3.5",
+    "angular-route": "1.4.12",
     "angular-sanitize": "~1.4.7",
-    "satellizer": "^0.15.4"
+    "satellizer": "^0.15.4",
+    "angular-toastr": "^2.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.12"
   }
 }

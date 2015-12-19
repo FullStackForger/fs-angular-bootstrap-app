@@ -13,6 +13,7 @@ const inject = require('gulp-inject')
 const ngAnnotate = require('gulp-ng-annotate')
 const ngConstant = require('gulp-ng-constant')
 const rename = require('gulp-rename')
+const wiredep = require('wiredep').stream // https://github.com/taptapship/wiredep#gulpjs
 
 // --------------------------------
 // configuration
@@ -74,7 +75,7 @@ gulp.task('purge:dist', function() {
 		.pipe(clean())
 })
 
-gulp.task('concat', ['purge-dist'], function () {
+gulp.task('concat:dist', ['purge:dist'], function () {
     // gulp.src(settings.path.source)
     // .pipe(ngAnnotate())
     // .pipe(concat('app.js'))
@@ -86,28 +87,32 @@ gulp.task('concat', ['purge-dist'], function () {
 			.pipe(gulp.dest(settings.path.build))
 })
 
-gulp.task('index', function () {
-  var target = gulp.src(settings.path.indexTpl)
-	var scripts = Array.prototype.concat(settings.scripts, settings.styles)
-  var sources = gulp.src(scripts, { read: false })
-
-  return target
-		.pipe(inject(sources, {
-			// gulp inject prefixes paths with '/{root_dir}'
-			ignorePath: '/' + settings.path.source
-		}))
-		.pipe(concat(settings.path.index))
-    .pipe(gulp.dest(settings.path.source))
-})
-
-gulp.task('index:dist', function () {
+gulp.task('index:dist', ['concat:dist'], function () {
   var target = gulp.src(settings.path.source + 'index.html')
   var sources = gulp.src([
-		//settings.path.build + '**/*.css',
+		settings.path.build + '**/*.css',
 		settings.path.build + '**/*.js'
 	], { read: false })
 
   return target
-		.pipe(inject(sources))
-    .pipe(gulp.dest(settings.path.build))
+		.pipe(inject(sources, {
+			// gulp inject prefixes paths with '/{root_dir}'
+			ignorePath: '/' + settings.path.build
+		}))
+		.pipe(concat(settings.path.index))
+   	.pipe(gulp.dest(settings.path.build))
 })
+
+gulp.task('index', ['purge'], function () {
+	var libs = Array.prototype.concat(settings.scripts, settings.styles)
+	gulp
+		.src(settings.path.indexTpl)
+		.pipe(wiredep())
+		.pipe(inject(gulp.src(libs, { read: false }), {
+			ignorePath: '/' + settings.path.source 	// gulp inject prefixes paths with '/{root_dir}'
+		}))
+		.pipe(concat(settings.path.index))
+   	.pipe(gulp.dest(settings.path.source))
+})
+
+gulp.task('default', ['config', 'index'])

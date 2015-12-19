@@ -127,6 +127,10 @@ gulp.task('export:dist', ['index:tmp'], function () {
 		.pipe(gulp.dest(settings.path.build))
 	gulp.src(settings.path.temp + settings.path.index)
 		.pipe(gulp.dest(settings.path.build))
+
+
+ gulp.src(settings.path.temp, {read: false})
+		.pipe(clean())
 })
 
 gulp.task('index', ['purge'], function () {

@@ -26,9 +26,11 @@ const settings = {
 		"build": 			"client/dist/",
 		"source": 		"client/",
 		"devParent": 	"client/dev/",
+		// files
 		"templates":	"app.templates.js",
 		"indexTpl": 	"client/index.tpl.html",
-		"index": 			"index.html"
+		"index": 			"index.html",
+		"app": 				"app.js"
 	},
 	"scripts": [
 		"!client/**/*.spec.js",
@@ -86,7 +88,7 @@ gulp.task('purge:tmp', function () {
 		.pipe(clean())
 })
 
-gulp.task('templates:dist', ['purge:tmp'], function () {
+gulp.task('templates:tmp', ['purge:tmp'], function () {
   return gulp.src(settings.templates)
     .pipe(templateCache({
 			module: 'app'
@@ -95,30 +97,36 @@ gulp.task('templates:dist', ['purge:tmp'], function () {
     .pipe(gulp.dest(settings.path.temp))
 })
 
-gulp.task('concat:dist', ['purge:dist', 'templates:dist'], function () {
+gulp.task('concat:tmp', ['templates:tmp'], function () {
 		return gulp.src(Array.prototype.concat(
 				settings.scripts,
 				settings.path.temp + settings.path.templates // add templates
 			))
 			.pipe(footer(';'))
-			.pipe(concat('app.js'))
-			.pipe(gulp.dest(settings.path.build))
+			.pipe(concat(settings.path.app))
+			.pipe(gulp.dest(settings.path.temp))
 })
 
-gulp.task('index:dist', ['concat:dist'], function () {
-  var target = gulp.src(settings.path.source + 'index.html')
+gulp.task('index:tmp', ['concat:tmp'], function () {
   var sources = gulp.src([
-		settings.path.build + '**/*.css',
-		settings.path.build + '**/*.js'
+		settings.path.temp + '*.css',
+		settings.path.temp + settings.path.app
 	], { read: false })
 
-  return target
+  return gulp.src(settings.path.indexTpl)
 		.pipe(inject(sources, {
 			// gulp inject prefixes paths with '/{root_dir}'
-			ignorePath: '/' + settings.path.build
+			ignorePath: '/' + settings.path.temp
 		}))
 		.pipe(concat(settings.path.index))
-   	.pipe(gulp.dest(settings.path.build))
+   	.pipe(gulp.dest(settings.path.temp))
+})
+
+gulp.task('export:dist', ['index:tmp'], function () {
+	gulp.src(settings.path.temp + settings.path.app)
+		.pipe(gulp.dest(settings.path.build))
+	gulp.src(settings.path.temp + settings.path.index)
+		.pipe(gulp.dest(settings.path.build))
 })
 
 gulp.task('index', ['purge'], function () {
@@ -134,4 +142,4 @@ gulp.task('index', ['purge'], function () {
 })
 
 gulp.task('default', ['config', 'index'])
-gulp.task('build', ['index:dist'])
+gulp.task('build', ['export:dist', 'purge:tmp'])

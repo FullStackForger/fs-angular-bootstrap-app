@@ -10,6 +10,7 @@
 [ ] app > e2e > route tests
 [ ] app > gulp: build script
 [ ] development mocks (profile, login, signin)
-[x] `gulp config`
-[x] `gulp clean`
-[ ] `gulp js`
+[x] `gulp deafault`
+[x] `gulp dist` with `./gulp/config.js`
+[ ] `gulp dist` minification bugfix
+[ ]	add `gulp watch` & `serve` to `default` task

@@ -7,7 +7,7 @@ module.exports = {
 		source: 	'client/',
 		tmp: 			'.tmp/'
 	},
-	minify: argv.minify || true,
+	minify: argv.minify || false,
 	path: {
 		indexTpl: 	'index.tpl.html',			// main html file template
 		index: 			'index.html',					// main html file name

@@ -40,8 +40,10 @@ client/vendor
 *.swn
 
 # configuration
-client/config.js
-[Cc]onfig/
+# [Cc]onfig/
+
+# config module
+app.config.js
 
 # distribution
 [Dd]ist

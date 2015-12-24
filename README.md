@@ -3,9 +3,8 @@
 IndieForger Single Page App
 
 
-## Configuration 
+## Setup 
 
 ```
-gulp config
-gulp config -env development 
+npm install
 ```

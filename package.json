@@ -29,7 +29,8 @@
   },
   "scripts": {
     "test": "karma start karma.conf.js --log-level debug --single-run",
-    "test-watch": "karma start karma.config.js"
+    "test-watch": "karma start karma.config.js",
+		"postinstall": "bower cache clean && bower install"
   },
   "repository": {
     "type": "git",

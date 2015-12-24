@@ -42,9 +42,10 @@ client/vendor
 # configuration
 # [Cc]onfig/
 
-# config module
-app.config.js
-
 # distribution
 [Dd]ist
 [Bb]uild
+
+# build generated files
+app.config.js
+client/index.html

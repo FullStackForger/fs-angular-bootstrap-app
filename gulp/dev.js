@@ -3,9 +3,13 @@ const clean = require('gulp-clean')
 const concat = require('gulp-concat')
 const gulp = require('gulp')
 const inject = require('gulp-inject')
+const livereload = require('gulp-livereload');
 const ngConstant = require('gulp-ng-constant')
 const path = require('path')
+const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
+const watch = require('gulp-watch')
+const webserver = require('gulp-webserver')
 const wiredep = require('wiredep')
 
 const config = require('./config')
@@ -39,7 +43,9 @@ gulp.task('dev:config', ['dev:purge'], function () {
 		})
 })
 
-gulp.task('dev:index', ['dev:config'], function () {
+gulp.task('dev:index', indexFiles)
+gulp.task('dev:index:all', ['dev:config'], indexFiles)
+function indexFiles() {
 	function injectScripts(opts) {
 		return inject(gulp.src(Array.prototype.concat.apply(
 				config.scripts,
@@ -56,15 +62,40 @@ gulp.task('dev:index', ['dev:config'], function () {
 		.pipe(injectScripts({ relative: true }))
 		.pipe(concat(config.path.index))
    	.pipe(gulp.dest(config.base.source))
+}
+
+gulp.task('reload', ['dev:index:all'], function () {
+	livereload.reload(config.base.dist + config.path.index)
 })
 
-
 gulp.task('dev:watch', function () {
-	console.log('not implemented yet')
-	// regenerate configs
-	// reload page (livereload)
+	livereload.listen();
+
+	gulp.watch(config.scripts.map((script) => {
+		return './' + config.base.source + script
+	}), ['reload']).on('change', function (evt) {
+		console.log(evt)
+	})
+
+	gulp.watch('./client/**/*.css', ['reload']).on('change', function(evt) {
+		console.log(evt)
+	})
+
+	gulp.watch('./client/**/*.html', ['reload']).on('change', function(evt) {
+		console.log(evt)
+	})
+
 	// run unit test
 	// run jslint / jshint
 })
 
-gulp.task('default', ['dev:config', 'dev:index'])
+gulp.task('dev:serve', ['dev:watch'], function() {
+  gulp.src('./' + config.base.source)
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: false,
+      open: true
+    }));
+});
+
+gulp.task('default', ['dev:serve'])

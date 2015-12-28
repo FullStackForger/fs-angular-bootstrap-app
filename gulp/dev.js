@@ -71,22 +71,26 @@ gulp.task('reload', ['dev:index:all'], function () {
 gulp.task('dev:watch', function () {
 	livereload.listen();
 
+	// watch scripts
 	gulp.watch(config.scripts.map((script) => {
 		return './' + config.base.source + script
 	}), ['reload']).on('change', function (evt) {
 		console.log(evt)
 	})
 
-	gulp.watch('./client/**/*.css', ['reload']).on('change', function(evt) {
+	// watch styles
+	gulp.watch(config.styles.map((script) => {
+		return './' + config.base.source + script
+	}), ['reload']).on('change', function(evt) {
 		console.log(evt)
 	})
 
-	gulp.watch('./client/**/*.html', ['reload']).on('change', function(evt) {
+	// watch templates
+	gulp.watch(config.ngTemplate.sources.map((script) => {
+		return './' + config.base.source + script
+	}), ['reload']).on('change', function(evt) {
 		console.log(evt)
 	})
-
-	// run unit test
-	// run jslint / jshint
 })
 
 gulp.task('dev:serve', ['dev:watch'], function() {

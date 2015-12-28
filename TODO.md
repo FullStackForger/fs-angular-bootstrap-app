@@ -13,4 +13,6 @@
 [x] `gulp deafault`
 [x] `gulp dist` with `./gulp/config.js`
 [ ] `gulp dist` minification bugfix
-[ ]	add `gulp watch` & `serve` to `default` task
+[ ]	`gulp watch` & `livereload` & `open` to `default` task
+[ ] gulp source maps for development (dev)
+[ ] gulp source maps for production (dist)

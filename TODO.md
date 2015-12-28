@@ -13,6 +13,8 @@
 [x] `gulp deafault`
 [x] `gulp dist` with `./gulp/config.js`
 [ ] `gulp dist` minification bugfix
-[ ]	`gulp watch` & `livereload` & `open` to `default` task
+[x]	`gulp watch` & `livereload` & `open` to `default` task
 [ ] gulp source maps for development (dev)
 [ ] gulp source maps for production (dist)
+[ ] gulp: run unit tests
+[ ] gulp: jshint

@@ -18,3 +18,4 @@
 [ ] gulp source maps for production (dist)
 [ ] gulp: run unit tests
 [ ] gulp: jshint
+[ ] move from bower to browserify: https://gofore.com/stop-using-bower/

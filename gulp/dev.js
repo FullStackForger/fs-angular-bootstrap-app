@@ -43,7 +43,7 @@ gulp.task('dev:config', ['dev:purge'], function () {
 		})
 })
 
-gulp.task('dev:index', indexFiles)
+gulp.task('dev:index', ['dev:config'], indexFiles)
 gulp.task('dev:index:all', ['dev:config'], indexFiles)
 function indexFiles() {
 	function injectScripts(opts) {
@@ -68,13 +68,14 @@ gulp.task('reload', ['dev:index:all'], function () {
 	livereload.reload(config.base.dist + config.path.index)
 })
 
-gulp.task('dev:watch', function () {
+gulp.task('dev:watch', ['dev:index:all'], function () {
 	livereload.listen();
 
 	// watch scripts
-	gulp.watch(config.scripts.map((script) => {
+	var scripts = config.scripts.map((script) => {
 		return './' + config.base.source + script
-	}), ['reload']).on('change', function (evt) {
+	}).concat(config.base.source + `/config/config.${config.env}.json`)
+	gulp.watch(scripts, ['reload']).on('change', function (evt) {
 		console.log(evt)
 	})
 

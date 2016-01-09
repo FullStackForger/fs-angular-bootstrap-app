@@ -1,7 +1,7 @@
 'use strict'
 const Bcrypt = require('bcryptjs')
 const Mongoose = require('mongoose')
-
+const config = require('./config')
 const userSchema = new Mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
@@ -37,7 +37,7 @@ userSchema.methods.comparePassword = function(password, done) {
 const User = Mongoose.model('User', userSchema)
 
 function connect() {
-	Mongoose.connect('mongodb://localhost/ifsp_app');
+	Mongoose.connect(config.MONGO_URI);
 	Mongoose.connection.on('error', function(err) {
 		console.log('Error: Could not connect to MongoDB. Did you forget to run `mongod`?'.red)
 	})

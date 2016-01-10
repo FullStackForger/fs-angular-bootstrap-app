@@ -13,9 +13,17 @@ npm install
 
 ## Run in development
 
+Use terminal or IDE debugger to run API server
+```
+cd server
+node server.js
+```
+
+Use another temrinal to build client
 ```
 gulp
 ```
+
 
 ## Build for production
 
